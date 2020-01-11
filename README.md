@@ -1,8 +1,9 @@
 ## 码匠社区
 
 ## 资料
-http://spring.io/guides
+[Spring 文档](http://spring.io/guides)
 
 
 ## 工具
-http://git-scm.com/download
+[Git](http://git-scm.com/download)
+[Visual Paradigm](https://www.visual-paradigm.com)
