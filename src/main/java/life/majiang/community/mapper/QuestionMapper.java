@@ -1,28 +1,41 @@
 package life.majiang.community.mapper;
 
-import life.majiang.community.model.Question;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-
 import java.util.List;
+import life.majiang.community.model.Question;
+import life.majiang.community.model.QuestionExample;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.RowBounds;
 
-@Mapper
 public interface QuestionMapper {
+    long countByExample(QuestionExample example);
 
-    @Insert("insert into question (title,description,gmt_create,gmt_modified,creator,tag) values (#{title},#{description},#{gmtCreate},#{gmtModified},#{creator},#{tag})")
-    void create(Question question);
+    int deleteByExample(QuestionExample example);
 
-    @Select("select * from question limit #{offset}, #{size}")
-    List<Question> list(@Param(value = "offset") Integer offset,@Param(value = "size") Integer size);
+    int deleteByPrimaryKey(Integer id);
 
-    @Select("select count(1) from question")
-    Integer count();
+    int insert(Question record);
 
-    @Select("select * from question where creator = #{userId} limit #{offset}, #{size}")
-    List<Question> listByUserId(@Param("userId") Integer userId, @Param(value = "offset") Integer offset,@Param(value = "size") Integer size);
+    int insertSelective(Question record);
 
-    @Select("select count(1) from question where creator = #{userId}")
-    Integer countByUserId(@Param("userId") Integer userId);
+    List<Question> selectByExampleWithBLOBsWithRowbounds(QuestionExample example, RowBounds rowBounds);
+
+    List<Question> selectByExampleWithBLOBs(QuestionExample example);
+
+    List<Question> selectByExampleWithRowbounds(QuestionExample example, RowBounds rowBounds);
+
+    List<Question> selectByExample(QuestionExample example);
+
+    Question selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") Question record, @Param("example") QuestionExample example);
+
+    int updateByExampleWithBLOBs(@Param("record") Question record, @Param("example") QuestionExample example);
+
+    int updateByExample(@Param("record") Question record, @Param("example") QuestionExample example);
+
+    int updateByPrimaryKeySelective(Question record);
+
+    int updateByPrimaryKeyWithBLOBs(Question record);
+
+    int updateByPrimaryKey(Question record);
 }

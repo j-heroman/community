@@ -23,12 +23,15 @@
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading" th:text="${question.title}"></h4>
+                    <h4 class="media-heading" >
+                        <a th:href="'/question/'+${question.id}" th:text="${question.title}"></a>
+                    </h4>
                     <span th:text="${question.description}"></span><br>
                     <span class="text-desc">
                         ·[[${question.commentCount}]] 回复&nbsp;
                         ·[[${question.viewCount}]] 浏览数&nbsp;
-                        ·[[${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm')}]]</span>
+                        ·[[${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm')}]]
+                    </span>
                 </div>
             </div>
             <nav aria-label="Page navigation">

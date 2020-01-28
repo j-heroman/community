@@ -30,3 +30,12 @@ body {
 .profile .section {
     margin-top: 15px;
 }
+
+.community-menu {
+    color: #999;
+    font-size: 12px;
+}
+
+.jumbotron {
+    margin: 50px;
+}
